@@ -1,0 +1,310 @@
+/* Basic utility classes, may go unused */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.stretch {
+  max-width: 2440px;
+}
+
+.card {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 10px;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  border: none;
+  border-radius: 30px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px var(--font-color) solid;
+}
+
+.btn:hover {
+  transform: scale(0.985);
+}
+
+/* Backgrounds, buttons, card theming */
+
+.bg-primary,
+.card-primary,
+.card-primary a,
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--font-color);
+}
+
+.bg-secondary,
+.card-secondary,
+.card-secondary a,
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+}
+
+.bg-dark,
+.card-dark,
+.card-dark a,
+.btn-dark {
+  background-color: var(--dark-color);
+  color: var(--font-color);
+}
+
+.bg-light,
+.card-light,
+.card-light a,
+.btn-light {
+  background-color: var(--light-color);
+  color: var(--font-dark);
+}
+
+/* Flex and Grid */
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(0, [colstart] 1fr);
+  grid-template-rows: 0fr 1fr;
+  gap: 0rem;
+  min-height: 100%;
+  padding: 0 0 1rem 0;
+}
+
+.grid-12 > * {
+  grid-column: col-start / span 12;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gridstartalign {
+  justify-content: start;
+  align-items: start;
+}
+
+.header1 {
+  grid-column: col-start / span 5;
+  grid-row: 1;
+}
+
+.header2 {
+  grid-column: col-start 6 / span 5;
+  grid-row: 1;
+}
+
+.content1 {
+  grid-column: col-start / span 5;
+  grid-row: 2;
+}
+
+.content2 {
+  grid-column: col-start 6 / span 5;
+  grid-row: 2;
+}
+/* reused animations */
+.lighten a:hover {
+  transition: color 0.2s ease-in-out;
+  color: #fff;
+}
+
+.embiggen i:hover {
+  transform: scale(1.2);
+}
+
+.invert i:hover {
+  filter: invert(100%);
+  color: #fff;
+  background-color: #323232;
+}
+
+.leftright {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.875rem;
+}
+
+.leftright:after {
+  display: block;
+  content: "";
+  border-bottom: solid 2px rgba(255, 255, 255, 0.9);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+  transform-origin: 0% 50%;
+}
+
+.leftright:hover:after {
+  transform: scaleX(1);
+  transform-origin: 0% 50%;
+}
+
+/* Text manipulation */
+
+.fadefont {
+  color: var(--font-faded);
+}
+
+.colorfont {
+  color: var(--font-color);
+}
+
+.boldfont {
+  font-weight: 600;
+}
+
+.thinfont {
+  font-weight: 400;
+}
+
+/* Padding and Margin classes */
+/* Margin */
+.my-1 {
+  margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 1.5rem 0;
+}
+
+.my-3 {
+  margin: 2rem 0;
+}
+
+.my-4 {
+  margin: 3rem 0;
+}
+
+.my-5 {
+  margin: 4rem 0;
+}
+
+.mx-1 {
+  margin: 0 1rem;
+}
+
+.mx-2 {
+  margin: 0 1.5rem;
+}
+
+.mx-3 {
+  margin: 0 2rem;
+}
+
+.mx-4 {
+  margin: 0 3rem;
+}
+
+.mx-5 {
+  margin: 0 4rem;
+}
+
+.m-1 {
+  margin: 0 1rem;
+}
+
+.m-2 {
+  margin: 0 1.5rem;
+}
+
+.m-3 {
+  margin: 2rem;
+}
+
+.m-4 {
+  margin: 3rem;
+}
+
+.m-5 {
+  margin: 4rem;
+}
+
+/* Padding */
+.py-1 {
+  padding: 1rem 0;
+}
+
+.py-2 {
+  padding: 1.5rem 0;
+}
+
+.py-3 {
+  padding: 2rem 0;
+}
+
+.py-4 {
+  padding: 3rem 0;
+}
+
+.py-5 {
+  padding: 4rem 0;
+}
+
+.px-1 {
+  padding: 0 1rem;
+}
+
+.px-2 {
+  padding: 0 1.5rem;
+}
+
+.px-3 {
+  padding: 0 2rem;
+}
+
+.px-4 {
+  padding: 0 3rem;
+}
+
+.px-5 {
+  padding: 0 4rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 1.5rem;
+}
+
+.p-3 {
+  padding: 2rem;
+}
+
+.p-4 {
+  padding: 3rem;
+}
+
+.p-5 {
+  padding: 4rem;
+}

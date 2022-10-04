@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+/* To do: Add a high contrast toggle that switches colors and fonts around */
+
+:root {
+  --primary-color: #171821;
+  --secondary-color: #232426;
+  --dark-color: #050710;
+  --light-color: #383941;
+  --font-color: #dfdfdf;
+  --font-faded: #8a8a8a;
+  --font-dark: #443c3c;
+
+  /* Old Color Scheme 
+    --primary-color: #202020;
+    --secondary-color: #404040;
+    --dark-color: #101010;
+    --light-color: #a0a0a0;
+    --font-color: #dfdfdf;
+    --font-dark: #323232; */
+
+  /* Bluer Color Scheme
+    --primary-color: #171821;
+    --secondary-color: #232426;
+    --dark-color: #050710;
+    --light-color: #383941;
+    --font-color: #dfdfdf;
+    --font-dark: #443c3c; */
+
+  /* Updated Bluer Color Scheme 
+    --primary-color: #171719;
+    --secondary-color: #232325;
+    --dark-color: #050509;
+    --light-color: #383840;
+    --font-color: #dfdfdf;
+    --font-dark: #3c3c3c; */
+}
+/*to do: adjust font-size and rems
+1) Set font size to 62.5% to get rem = 10px
+2) multiply all rems by 1.6
+*/
+
+html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: var(--font-color);
+  line-height: 1.7;
+  background-color: var(--primary-color);
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+}
+
+/* Top of Screen Navigation */
+
+.navbar {
+  background-color: var(--dark-color);
+  color: var(--font-color);
+  z-index: 100;
+  height: 4rem;
+  font-weight: 600;
+  grid-row-start: 0;
+  grid-row-end: 1;
+}
+
+.navbar ul {
+  font-size: 1.5rem;
+  display: flex;
+  overflow: hidden;
+}
+
+.navbar a {
+  /*color: var(--font-faded);*/
+  margin: 0;
+  padding-left: 0px;
+  padding-right: 15px;
+}
+
+/* Deprecated 
+.navbar a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+} */
+
+.navbar .flex {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar .pagelinks > ul > li:last-child > a,
+.navbar .social > ul > li:last-child > a {
+  /* targets the last item in the pagelinks and removes its padding for better display */
+  padding-right: 0px;
+}
+
+/* Old rule for when pagelinks was the ul rather than the nav class 
+.navbar .pagelinks > li:last-child > a { 
+     padding-right: 0px;
+} */
+
+/* body main */
+.aboutme {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 0 1rem 0 1rem;
+}
+
+/* Footer */
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.footer .signature > h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.footer .signature > p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.footer .pagelinks {
+  justify-self: center;
+}
+
+.footer .social {
+  justify-self: end;
+  font-size: 1.2rem;
+}
+
+.footer .social i {
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+/*.footer .social > a:last-child {
+  padding-right: 10px;
+}*/
+
+/* Media Queries, Tablets and under */
+@media (max-width: 768px) {
+}
+
+/* Media Queries, phones */
+@media (max-width: 500px) {
+  .navbar {
+    height: 6rem;
+    background-color: transparent;
+    overflow: hidden;
+  }
+
+  .navbar .social {
+    display: none;
+    min-width: 0px;
+    max-width: 0px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .navbar a:hover {
+    text-decoration: none;
+  }
+
+  .navbar .flex {
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .navbar .container {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .navbar ul {
+    padding: 10px;
+    flex: 0 1 auto;
+    font-size: calc(
+      0.8rem + 3vw
+    ); /* responsive text down to 280px wide AKA Galaxy Fold*/
+    background-color: var(--dark-color);
+    border-radius: 15px;
+    /*border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;*/
+    overflow: hidden;
+  }
+
+  .footer .grid {
+    justify-content: space-between;
+  }
+}
