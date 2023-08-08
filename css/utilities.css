@@ -1,13 +1,13 @@
 /* Basic utility classes, may go unused */
 .container {
-  max-width: 1400px;
+  max-width: 2560px; /*presumably the max width of any monitor that is being used without scaling*/
   margin: 0 auto;
   overflow: auto;
   padding: 0 40px;
 }
 
 .stretch {
-  max-width: 2440px;
+  max-width: 3840px;
 }
 
 .card {
@@ -69,7 +69,28 @@
 .card-light a,
 .btn-light {
   background-color: var(--light-color);
-  color: var(--font-dark);
+  color: var(--font-color);
+}
+
+.btn-darkMode {
+  display: inline-block;
+  padding: 10px 10px;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  background-color: #ebebeb;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+}
+
+.btn-darkMode:after {
+  content: "";
+  width: 180px;
+  height: 180px;
+  position: absolute;
 }
 
 /* Flex and Grid */
@@ -96,7 +117,7 @@
   grid-template-rows: 0fr 1fr;
   gap: 0rem;
   min-height: 100%;
-  padding: 0 0 1rem 0;
+  padding: 0 5rem 1rem 5rem;
 }
 
 .grid-12 > * {
@@ -133,8 +154,8 @@
 }
 /* reused animations */
 .lighten a:hover {
-  transition: color 0.2s ease-in-out;
-  color: #fff;
+  transition: color 0.3s ease-in-out;
+  color: var(--font-color);
 }
 
 .embiggen i:hover {
@@ -143,8 +164,8 @@
 
 .invert i:hover {
   filter: invert(100%);
-  color: #fff;
-  background-color: #323232;
+  color: var(--bg-dark);
+  background-color: var(--font-dark);
 }
 
 .leftright {
@@ -157,7 +178,8 @@
 .leftright:after {
   display: block;
   content: "";
-  border-bottom: solid 2px rgba(255, 255, 255, 0.9);
+  border-bottom: solid 2px var(--font-color);
+  /*(255, 255, 255, 0.9);*/
   transform: scaleX(0);
   transition: transform 0.2s ease-in-out;
   transform-origin: 0% 50%;

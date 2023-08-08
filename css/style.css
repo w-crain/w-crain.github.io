@@ -35,6 +35,26 @@
     --font-color: #dfdfdf;
     --font-dark: #3c3c3c; */
 }
+
+html[data-theme="light"] {
+  --primary-color: #ffffff;
+  --secondary-color: #dee4e7;
+  --dark-color: #dee4e7;
+  --light-color: #f4f5ff;
+  --font-color: #000000;
+  --font-faded: #232323;
+  --font-dark: #555555;
+}
+
+html[data-theme="dark"] {
+  --primary-color: #171821;
+  --secondary-color: #232426;
+  --dark-color: #050710;
+  --light-color: #383941;
+  --font-color: #dfdfdf;
+  --font-faded: #8a8a8a;
+  --font-dark: #443c3c;
+}
 /*to do: adjust font-size and rems
 1) Set font size to 62.5% to get rem = 10px
 2) multiply all rems by 1.6
@@ -58,6 +78,7 @@ body {
   min-height: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
+  transition: 0.3s;
 }
 
 ul {
@@ -94,6 +115,7 @@ img {
   font-weight: 600;
   grid-row-start: 0;
   grid-row-end: 1;
+  transition: 0.3s;
 }
 
 .navbar ul {
@@ -138,11 +160,13 @@ img {
   grid-row-end: 2;
   margin: 0 1rem 0 1rem;
 }
+de
 
 /* Footer */
 .footer {
   grid-row-start: 2;
   grid-row-end: 3;
+  transition: 0.3s;
 }
 
 .footer .signature > h1 {
@@ -177,11 +201,11 @@ img {
 }*/
 
 /* Media Queries, Tablets and under */
-@media (max-width: 768px) {
-}
+/*@media (max-width: 768px) {
+}*/
 
-/* Media Queries, phones */
-@media (max-width: 500px) {
+/* Media Queries, phones */ /*set to 500px later, temporarily set to 768*/
+@media (max-width: 768px) {
   .navbar {
     height: 6rem;
     background-color: transparent;
@@ -225,7 +249,117 @@ img {
     overflow: hidden;
   }
 
-  .footer .grid {
-    justify-content: space-between;
+  h1,
+  h2 {
+    margin: 0px 0px;
   }
+
+  .aboutme .grid-12 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding: 1rem;
+    grid-row-gap: 0.5rem;
+  }
+
+  .aboutme .header1 {
+    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .aboutme .header2 {
+    text-align: center;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .aboutme .content1 {
+    text-align: justify;
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0 5rem 0 5rem;
+  }
+
+  .aboutme .content2 {
+    text-align: justify;
+    grid-column: 1;
+    grid-row: 4;
+    padding: 0 5rem 0 5rem;
+  }
+}
+
+.footer .grid {
+  justify-content: space-between;
+}
+/* to do: convert to REMs*/
+label {
+  display: flex;
+  width: 75px;
+  height: 35px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  background: #222;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+}
+label i {
+  font-size: 18px;
+}
+label .fa-sun {
+  color: gold;
+  transition: 0.3s;
+}
+label .fa-moon {
+  color: #fff;
+  transition: 0.3s;
+}
+label .ball {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 25px;
+  top: 5px;
+  left: 5px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + label .fa-moon {
+  transform: translateX(-2.8rem) rotate(270deg);
+}
+
+input:checked + label .fa-sun {
+  transform: translateX(2.8rem);
+}
+
+input:checked + label .ball {
+  transform: translateX(2.6rem);
+}
+label .fa-sun {
+  transform: translateX(2.8rem) rotate(180deg);
+  opacity: 0;
+}
+input:checked + label .fa-sun {
+  opacity: 1;
+  transform: translateX(0);
+}
+label .fa-moon {
+  opacity: 1;
+  transform: rotate(0);
+}
+input:checked + label .fa-moon {
+  opacity: 0;
+}
+input:checked + label {
+  background: #eee;
+}
+input:checked + label .ball {
+  background: #222;
+}
+input {
+  display: none;
 }
